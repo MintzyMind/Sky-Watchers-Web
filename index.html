@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Watchers</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <img src="images/Sky Watchers.png" alt="Logo" class="logo">
+        <p class="located">Location: School of Engineering and Technology, Academic Building 4, Walailak University</p>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="container">
+            <div id="clock-container">
+                <p id="date"></p>
+                <p id="time"></p>
+            </div>
+            <div class="row1">
+                <div class="col-md-6">
+                    <img src="images/MayBeRain-Test-01.jpg" alt="Example-image" class="example">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-container">
+                        <div class="card">
+                            <h2>Time : 15:20
+                                Date : 13/8/2024
+                            </h2>
+                        </div>
+                        <div class="card">
+                            <h2>Predicted result : May be rain</h2>
+                        </div>
+                        <button class="btn bnt2" onclick="navigateToNextPage()">Predict your own image</button>
+                    </div>
+                </div>
+            </div>
+            <div class="parent-container">
+                <div class="button-container">
+                    <button id="export-btn" class="btn">Export recent data</button>
+                    <button class="btn" onclick="showAll('widget')">Show All Values</button>
+                    <button class="btn" onclick="showAll('graph')">Show All Graphs</button>
+                </div>
+            </div>
+
+            <div class="row2">
+                <div class="col-md-4">
+                    <h2>Temperature</h2>
+                    <br>
+                    <div class="toggle-container">
+                        <div id="temperature-widget" class="toggle-content active">
+                            <iframe height="270" src="https://thingspeak.com/channels/2622122/widgets/903973"></iframe>
+                        </div>
+                        <div id="temperature-graph" class="toggle-content">
+                            <iframe height="270"
+                                src="https://thingspeak.com/channels/2622122/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=50&title=Temperature&type=line&xaxis=Time&yaxis=Degree+celcius"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <h2>Humidity</h2>
+                    <br>
+                    <div class="toggle-container">
+                        <div id="humidity-widget" class="toggle-content active">
+                            <iframe height="270" src="https://thingspeak.com/channels/2622122/widgets/903974"></iframe>
+                        </div>
+                        <div id="humidity-graph" class="toggle-content">
+                            <iframe height="270"
+                                src="https://thingspeak.com/channels/2622122/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=50&title=Humidity&type=line&xaxis=Time&yaxis=Percent+%28+%25+%29"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <h2>Air Pressure</h2>
+                    <br>
+                    <div class="toggle-container">
+                        <div id="airpressure-widget" class="toggle-content active">
+                            <iframe height="270" src="https://thingspeak.com/channels/2622122/widgets/903975"></iframe>
+                        </div>
+                        <div id="airpressure-graph" class="toggle-content">
+                            <iframe height="270"
+                                src="https://thingspeak.com/channels/2622122/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=50&title=Air+pressure&type=line&xaxis=Time&yaxis=hectopascal+%28+hPa+%29"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row2">
+                <div class="col-md-4">
+                    <h2>Rain drop Value*</h2>
+                    <br>
+                    <div class="toggle-container">
+                        <div id="rainvalue-widget" class="toggle-content active">
+                            <iframe height="270" src="https://thingspeak.com/channels/2622122/widgets/904509"></iframe>
+                        </div>
+                        <div id="rainvalue-graph" class="toggle-content">
+                            <iframe height="270"
+                                src="https://thingspeak.com/channels/2622122/charts/7?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=20&title=Rain+drop+value&type=line&xaxis=Time&yaxis=value+%28millimetres%29"></iframe>
+                        </div>
+                    </div>
+                    <button class="toggle-note-button" data-note-id="note1">Show Note*</button>
+                    <p class="note" id="note1">
+                        *Note* : Rain value interval
+                        - Less than / equal to 0.1 millimetres means " Can't measure "
+                        - Between 0.1 millimetres and 10 millimetres means " Light rain "
+                        - From 10.1 millimetres to 35.0 millimetres means " Moderate rain "
+                        - From 35.1 millimetres to 90 millimetres means " Heavy rain "
+                        - More than 90.1 millimetres means " Extremely rainstorm "
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h2>Rain Signal**</h2>
+                    <br>
+                    <div class="toggle-container">
+                        <div id="rainsignal-widget" class="toggle-content active">
+                            <iframe height="270" src="https://thingspeak.com/channels/2622122/widgets/903977"></iframe>
+                        </div>
+                        <div id="rainsignal-graph" class="toggle-content">
+                            <iframe height="270"
+                                src="https://thingspeak.com/channels/2622122/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=50&title=Rain+digital+signal&type=line&xaxis=Time&yaxis=signal+%28+0%2F1+%29"></iframe>
+                        </div>
+                    </div>
+                    <button class="toggle-note-button" data-note-id="note2">Show Note**</button>
+                    <p class="note" id="note2">
+                        **Note** : Rain digital signal intervals
+                        - " 0 " means " No rain "
+                        - " 1 " means " Raining "
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Wind Speed</h2>
+                    <br>
+                    <div class="toggle-container">
+                        <div id="windspeed-widget" class="toggle-content active">
+                            <iframe height="270" src="https://thingspeak.com/channels/2622122/widgets/903978"></iframe>
+                        </div>
+                        <div id="windspeed-graph" class="toggle-content">
+                            <iframe height="270"
+                                src="https://thingspeak.com/channels/2622122/charts/6?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=50&title=Wind+speed&type=line&xaxis=Time&yaxis=speed+%28+m%2Fs+%29"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="fancy-heading">Tendency of next period data</h1>
+            <div class="row4">
+                <div class="col-md-4">
+                    <h2>Temperature</h2>
+                    <br>
+                    <div class="container">
+                        <div>
+                            <iframe height="270" src="https://thingspeak.com/channels/2624295/widgets/905041"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h2>Humidity</h2>
+                    <br>
+                    <div class="container">
+                        <div>
+                            <iframe height="270" src="https://thingspeak.com/channels/2624295/widgets/905042"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h2>Air Pressure</h2>
+                    <br>
+                    <div class="container">
+                        <div>
+                            <iframe height="270" src="https://thingspeak.com/channels/2624295/widgets/905043"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row4">
+                <div class="col-md-4">
+                    <h2> Wind Speed</h2>
+                    <br>
+                    <div class="container">
+                        <div>
+                            <iframe height="270" src="https://thingspeak.com/channels/2624295/widgets/905044"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h2> Rain drop Value*
+                    </h2>
+                    <br>
+                    <div class="container">
+                        <div>
+                            <iframe height="270" src="https://thingspeak.com/channels/2624295/widgets/905045"></iframe>
+                        </div>
+                    </div>
+                    <button class="toggle-note-button" data-note-id="note3">Show Note*</button>
+                    <p class="note" id="note3">
+                        *Note* : Rain value interval
+                        - Less than / equal to 0.1 millimetres means " Can't measure "
+                        - Between 0.1 millimetres and 10 millimetres means " Light rain "
+                        - From 10.1 millimetres to 35.0 millimetres means " Moderate rain "
+                        - From 35.1 millimetres to 90 millimetres means " Heavy rain "
+                        - More than 90.1 millimetres means " Extremely rainstorm "
+                    </p>
+                </div>
+            </div>
+            <div class="row3">
+                <div class="col-md-12">
+                    <h2>Weather Radar</h2>
+                    <br>
+                    <iframe height="500" width="1000"
+                        src="https://www.rainviewer.com/map.html?loc=8.9159,99.9088,7.5205575714558766&oFa=0&oC=0&oU=0&oCS=1&oF=0&oAP=1&c=3&o=83&lm=1&layer=radar&mlayer=0&sm=1&sn=0&hu=false"
+                        style="border: 1px solid #cccccc;"></iframe>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2024 Sky Watchers. สงวนลิขสิทธิ์.</p>
+    </footer>
+
+    <script>
+
+        function updateClock() {
+            const now = new Date();
+            const day = now.getDate().toString().padStart(2, '0');
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const year = now.getFullYear();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+
+            const dateString = `${day}/${month}/${year}`;
+            const timeString = `${hours}:${minutes}:${seconds}`;
+
+            document.getElementById('date').textContent = dateString;
+            document.getElementById('time').textContent = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call to display immediately
+
+        function showAll(type) {
+            const widgets = document.querySelectorAll('.toggle-content[id$="-widget"]');
+            const graphs = document.querySelectorAll('.toggle-content[id$="-graph"]');
+
+            if (type === 'widget') {
+                widgets.forEach(widget => widget.classList.add('active'));
+                graphs.forEach(graph => graph.classList.remove('active'));
+            } else if (type === 'graph') {
+                graphs.forEach(graph => graph.classList.add('active'));
+                widgets.forEach(widget => widget.classList.remove('active'));
+            }
+        }
+        function navigateToNextPage() {
+            window.location.href = 'http://localhost:8501/'; // Replace with the URL of the next page
+        }
+
+
+        document.getElementById('export-btn').addEventListener('click', function () {
+            // URL to the CSV file
+            const csvUrl = 'https://thingspeak.com/channels/2622122/feed.csv';
+
+            // Create a temporary anchor element
+            const a = document.createElement('a');
+            a.href = csvUrl;
+            a.download = 'recent-data.csv'; // Set the file name for the downloaded file
+
+            // Append anchor to the body
+            document.body.appendChild(a);
+
+            // Trigger the download
+            a.click();
+
+            // Remove the anchor from the document
+            document.body.removeChild(a);
+        });
+
+        document.querySelectorAll('.toggle-note-button').forEach(button => {
+            button.addEventListener('click', function () {
+                const noteId = this.getAttribute('data-note-id');
+                const note = document.getElementById(noteId);
+        
+                if (note.style.display === 'none' || note.style.display === '') {
+                    note.style.display = 'block';
+                    this.textContent = `Hide Note${this.textContent.includes('**') ? '**' : '*'}`;
+                } else {
+                    note.style.display = 'none';
+                    this.textContent = `Show Note${this.textContent.includes('**') ? '**' : '*'}`;
+                }
+            });
+        });
+        
+        // Additional code for id3 if necessary
+        document.getElementById('toggle-button3').addEventListener('click', function () {
+            const note3 = document.getElementById('note3');
+            
+            if (note3.style.display === 'none' || note3.style.display === '') {
+                note3.style.display = 'block';
+                this.textContent = 'Hide Note***';
+            } else {
+                note3.style.display = 'none';
+                this.textContent = 'Show Note***';
+            }
+        });
+        
+
+    </script>
+</body>
+
+</html>

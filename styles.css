@@ -1,0 +1,290 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    /* Light sky blue background */
+    color: #333;
+    /* Dark grey text */
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #102753;
+}
+
+.logo {
+    width: 350px;
+    height: 100px;
+}
+
+.located {
+    color: white;
+    margin: 0;
+    font-size: 18px;
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+    text-align: right;
+}
+
+h1 {
+    margin: 0;
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+    padding-top: 100px;
+}
+
+h2 {
+    margin: 0;
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Main Content Styles */
+main {
+    padding: 2rem;
+}
+
+.row2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+.row3 {
+    padding-top: 30px;
+}
+
+.col-md-4 {
+    flex: 1 1 calc(33.333% - 1rem);
+    box-sizing: border-box;
+}
+
+iframe {
+    width: 100%;
+    border: 1px solid #cccccc;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #102753;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin: 0;
+    font-size: 18px;
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Toggle Styles */
+.toggle-container {
+    position: relative;
+    width: 100%;
+}
+
+.toggle-content {
+    display: none;
+    text-align: center;
+}
+
+.toggle-content.active {
+    display: block;
+}
+
+.toggle-buttons {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.btn {
+    background-color: #083564;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Itim', sans-serif;
+}
+
+
+.parent-container {
+    position: relative;
+    /* Other styling properties for the parent container */
+}
+
+.button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.example {
+    width: 100%;
+
+}
+
+#clock-container {
+    text-align: right;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+#clock-container p {
+    margin: 0;
+    font-family: 'Itim', cursive;
+    font-size: 30px;
+    font-weight: 400;
+    font-style: normal;
+    color: #000000;
+}
+
+.row1 {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* Adjust the gap between columns as needed */
+    padding-bottom: 50px;
+}
+
+.col-md-6 {
+    flex: 1 1 calc(50% - 1rem);
+    box-sizing: border-box;
+}
+
+.card-container {
+    display: flex;
+    padding-top: 100px;
+    flex-direction: column;
+    /* Align cards vertically */
+    gap: 1rem;
+    /* Space between cards */
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    /* Ensure cards take full width of the container */
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.card p {
+    margin: 0.5rem 0 0;
+    color: #555;
+}
+
+.bnt2 {
+    background-color: #083564;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Itim';
+}
+
+.note {
+    display: none; /* Initially hide the notes */
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+    white-space: pre-line; 
+    font-family: 'Itim', cursive;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    color: #000000;
+}
+
+.toggle-container {
+    margin-bottom: 20px;
+}
+
+.toggle-note-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #083564;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Itim', cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.row4 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+.fancy-heading {
+    text-align: center;
+    /* Center the heading */
+    font-size: 40px;
+    /* Larger font size */
+    font-weight: bold;
+    /* Make the text bold */
+    margin: 20px 0;
+    /* Add vertical margin */
+    padding: 10px;
+    /* Add padding around the text */
+    background: linear-gradient(to right, #1529db, #0e4725);
+    /* Gradient background */
+    -webkit-background-clip: text;
+    /* Clip background to text */
+    -webkit-text-fill-color: transparent;
+    /* Make text color transparent for gradient effect */
+
+
+}
